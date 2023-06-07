@@ -32,7 +32,7 @@ jobs:
           password: ${{ vars.DOCKER_PASSWORD }}
 
       - name: Push Docker image
-        run: docker push pascalpap20/app-image
+        run: docker push pascalpap20/app-image:latest
 
   test:
     runs-on: ubuntu-latest
