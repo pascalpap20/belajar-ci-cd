@@ -12,9 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.20
+
       - name: Build
         run: |
-          echo "Building the application..."
+          go build -o crud
 
   test:
     runs-on: ubuntu-latest
@@ -25,7 +30,7 @@ jobs:
 
       - name: Test
         run: |
-          echo "Running tests..."
+          go test -v crud/unit-testing
 
   deploy:
     runs-on: ubuntu-latest
