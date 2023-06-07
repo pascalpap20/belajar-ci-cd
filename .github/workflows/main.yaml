@@ -21,6 +21,18 @@ jobs:
         run: |
           go build -o crud ./main.go
 
+      - name: Build Docker image
+        run: docker build -t crud-image .
+
+      - name: Log in to Docker registry
+        uses: docker/login-action@v1
+        with:
+          username: ${{ env.DOCKER_USERNAME }}
+          password: ${{ env.DOCKER_PASSWORD }}
+
+      - name: Push Docker image
+        run: docker push crud-image
+
   test:
     runs-on: ubuntu-latest
     needs: build
