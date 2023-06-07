@@ -19,7 +19,7 @@ jobs:
 
       - name: Build
         run: |
-          go build -o crud main.go
+          go build -o crud ./main.go
 
   test:
     runs-on: ubuntu-latest
