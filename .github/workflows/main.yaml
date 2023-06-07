@@ -22,7 +22,7 @@ jobs:
           go build -o crud ./main.go
 
       - name: Build Docker image
-        run: docker build -t app-image .
+        run: docker build -t pascalpap20/app-image .
 
       - name: Log in to Docker registry
         uses: docker/login-action@v1
